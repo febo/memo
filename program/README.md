@@ -7,7 +7,7 @@ A `pinocchio`-based Memo program.
 ## Overview
 
 `p-memo` is a reimplementation of the SPL Memo program using [`pinocchio`](https://github.com/anza-xyz/pinocchio). The program uses at most `~4%` of the compute units used by the current Memo program when signers are present; even when there are no signers, it needs only `~14%` of the current Memo program compute units. This efficiency is achieved by a combination of:
-1. `pinocchio` "lazy" entrypoint
+1. `pinocchio` entrypoint
 2. `sol_log_pubkey` syscall to log pubkey values
 3. [`solana-program-log`](https://crates.io/crates/solana-program-log) to format the memo message
 
@@ -30,19 +30,19 @@ CU comsumption:
 
 | \# signers | p-memo      | SPL Memo  |
 | ---------- | ----------- | --------- |
-| 0          | 287 (`14%`) | 2,022     |
-| 1          | 513 (`4%`)  | 13,525    |
-| 2          | 628 (`3%`)  | 25,111    |
-| 3          | 743 (`2%`)  | 36,406    |
+| 0          | 283 (`14%`) | 2,022     |
+| 1          | 510 (`4%`)  | 13,525    |
+| 2          | 617 (`3%`)  | 25,111    |
+| 3          | 724 (`2%`)  | 36,406    |
 
 > [!NOTE]
-> Using platform tools `v1.54`.
+> Using platform tools `v1.58`.
 
 ## Building
 
 To build the program from its directory:
 ```bash
-cargo build-sbf --tools-version v1.54
+cargo build-sbf --tools-version v1.58
 ```
 
 ## Testing
